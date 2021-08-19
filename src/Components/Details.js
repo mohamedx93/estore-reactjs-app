@@ -9,10 +9,10 @@ export default function Details() {
     //let { id, company, img, price, info, title, inCart } = context.detailedProduct;
     //const currentProduct = useRef({...context.detailProduct})
     const [detailProduct, setDetailProduct] = useState({ ...context.detailedProduct });
-    
+
     // const [addedToCart, setAddedToCart] = useState(inCart);
     useEffect(() => {
-        setDetailProduct({...context.detailedProduct})
+        setDetailProduct({ ...context.detailedProduct })
     }, [context.detailedProduct.inCart]);
     return (
         <div className="container py-5">
@@ -40,7 +40,8 @@ export default function Details() {
                         </Link>
                         <ButtonContainer cart disabled={detailProduct.inCart}
                             onClick={() => {
-                                context.addToCart(detailProduct.id)
+                                context.addToCart(detailProduct.id);
+                                context.openModal(detailProduct.id);
                             }}>
                             {detailProduct.inCart ? "inCart" : "add to Cart"}
                         </ButtonContainer>

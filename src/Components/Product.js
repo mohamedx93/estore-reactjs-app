@@ -16,7 +16,10 @@ export default function Product({ product: { id, title, img, price, inCart } }) 
                         <img src={img} alt='product' className="card-img-top" />
                     </Link>
                     <button className="cart-btn" disabled={inCart ? true : false}
-                        onClick={() => context.addToCart(id)}>
+                        onClick={() => {
+                            context.addToCart(id);
+                            context.openModal(id);
+                        }}>
                         {inCart ? (<p className="text-capitalize mb-0 " disabled>in cart</p>) : (<i className='fas fa-cart-plus' />)}
                     </button>
                 </div>
