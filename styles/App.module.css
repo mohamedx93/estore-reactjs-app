@@ -22,7 +22,7 @@
   color: var(--lightBlue);
 }
 
-.btn-black {
+.btnBlack {
   background: transparent;
   text-transform: capitalize;
   font-size: 0.8rem !important;
@@ -31,7 +31,7 @@
   border: 0.1rem solid var(--mainDark) !important;
 }
 
-.btn-black:hover {
+.btnBlack:hover {
   background: var(--mainDark) !important;
   color: var(--mainWhite) !important;
 }
