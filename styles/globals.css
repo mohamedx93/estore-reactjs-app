@@ -7,26 +7,12 @@
   -moz-osx-font-smoothing: grayscale;
 } */
 
-body {
-  font-family: 'Oswald', sans-serif !important;
-  background: var(--mainWhite) !important;
-  color: var(--mainDark);
-}
-
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
 
 /********************************/
 /* :root {
@@ -43,8 +29,37 @@ a {
   --mainWhite: var(--bs-light);
   --mainDark: var(--bs-dark);
   --mainYellow: bar(--bs-yellow);
+  --bg1: #040406;
+  --bg2: #323234;
+  --box-shaddow: #040406;
+  --Shaddow1: #040406;
+  --Shaddow2: #444446;
+  --SforIcon1: #2a2b2c;
+  --SforIcon2: #020305;
 }
 
+
+body {
+  font-family: 'Oswald', sans-serif !important;
+  /* background: var(--mainWhite) !important; */
+  color: var(--mainDark);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  background: linear-gradient(135deg, var(--bg1),var(--bg2));
+}
+
+.container{
+  background: linear-gradient(-135deg, var(--bg1),var(--bg2));
+  box-shadow: 0 0 8px 6px var(--box-shaddow);
+  border-radius: 32px;
+}
 
 
 
