@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import Link from "next/link";
-import { ProductContext } from "../pages/Context";
+import { ProductContext } from "../context";
 import PropTypes from 'prop-types'
 
 

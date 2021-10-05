@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import styled from "styled-components";
-import { ProductContext } from '../Context';
+import { ProductContext } from '../context';
 import { ButtonContainer } from './Button';
 import Link from "next/link";
 

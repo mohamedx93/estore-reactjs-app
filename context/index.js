@@ -18,15 +18,15 @@ function ProductProvider(props) {
     const [cartTax, setCartTax] = useState(0);
     const [cartTotal, setCartTotal] = useState(0);
 
-    const cloneProducts = () => {
-        let tempProducts = [];
-        storeProducts.forEach(item => {
-            tempProducts = [...tempProducts, { ...item }]
-        });
-        return tempProducts;
-    }
-
+    
     useEffect(() => {
+        const cloneProducts = () => {
+            let tempProducts = [];
+            storeProducts.forEach(item => {
+                tempProducts = [...tempProducts, { ...item }]
+            });
+            return tempProducts;
+        }
         let tempProducts = cloneProducts();
         setProducts(tempProducts);
     }, [])
@@ -122,5 +122,5 @@ function ProductProvider(props) {
     )
 }
 
-const ProductConsumer = ProductContext.Consumer;
-export { ProductProvider, ProductConsumer }
+// const ProductConsumer = ProductContext.Consumer;
+export { ProductProvider }

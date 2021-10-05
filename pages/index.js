@@ -1,12 +1,14 @@
-import React from 'react'
+import React,{ useContext } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/App.module.css'
 import Title from '../components/Title'
 import Product from '../components/Product';
+import { ProductContext } from '../context';
+import styled from 'styled-components';
 
 export default function Home() {
-  const context = useContext(ProductContext);
+  const contxt = useContext(ProductContext);
   
   return (
       <>
@@ -14,8 +16,7 @@ export default function Home() {
           <div className="container">
             <Title name="our" title="products" />
             <div className="row">
-
-              {context.products.map(product => { return <Product key={product.id} product={product} /> })}
+            {contxt.products.map(product => { return <Product key={product.id} product={product} /> })}
             </div>
           </div>
         </div>
@@ -25,7 +26,7 @@ export default function Home() {
             <Title name="our" title="products" />
             <div className="row">
 
-              {context.products.map(product => { return <Product key={product.id} product={product} /> })}
+            {contxt.products.map(product => { return <Product key={product.id} product={product} /> })}
             </div>
           </div>
         </div>

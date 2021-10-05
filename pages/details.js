@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { ProductContext } from '../Context'
+import { ProductContext } from '../context'
 import Link from 'next/link';
 import { ButtonContainer } from '../components/Button'
 

@@ -2,7 +2,7 @@ import React, { useContext  } from 'react'
 import Product from './Product'
 import Title from './Title';
 //import { storeProducts } from '../data'
-import { ProductContext } from '../Context'
+import { ProductContext } from '../context'
 
 
 export default function ProductList() {
