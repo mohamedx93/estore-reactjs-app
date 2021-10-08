@@ -1,0 +1,28 @@
+@use "colors" as *;
+@use "shaddows" as *;
+
+.shaddowedBtn {
+  background: $bg-gradient4;
+  @include outer-shaddow;
+}
+.navBar {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  button {
+    color: $lightBlue;
+    background: $bg-gradient4;
+    @include outer-shaddow;
+    transition: ease-in-out;
+  &:hover{
+    @include text-neon($lightBlue, $lightBlue);
+  }
+  &:active{
+    @include inner-shaddow;
+  }
+  }
+}
+
+.modal {
+}

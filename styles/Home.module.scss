@@ -1,0 +1,50 @@
+@use "colors" as *;
+@use "shaddows" as *;
+
+.home {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .div {
+    background: linear-gradient(135deg, var(--bg1), var(--bg2)) !important;
+  }
+
+  .container-neumorph {
+    background: linear-gradient(-135deg, var(--bg1), var(--bg2));
+    box-shadow: 0 0 8px 6px var(--box-shaddow);
+    // border-radius: 32px;
+  }
+
+  .place-holder-neumorph {
+    box-shadow: inset 4px 4px 8px var(--Shaddow1),
+      inset -4px -4px 8px var(--Shaddow2);
+    // border-radius: 16px;
+  }
+
+  button {
+    text-align: center;
+    border: none;
+    @include outer-shaddow2;
+    &:hover {
+      background: $mainDark !important;
+      color: $mainWhite !important;
+    }
+    &:active {
+      @include inner-shaddow;
+    }
+  }
+
+  .text-blue {
+    color: var(--mainBlue);
+  }
+
+  .text-bright {
+    color: var(--lightBlue);
+  }
+
+  .no-background {
+    background: none;
+  }
+}

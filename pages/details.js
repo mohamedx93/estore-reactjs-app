@@ -34,7 +34,7 @@ export default function Details() {
                     <p className="text-muted lead">{detailProduct.info}</p>
                     <div className="">
                         <Link href="/">
-                            <ButtonContainer>
+                            <ButtonContainer className='btn-neumorph'>
                                 back to product
                             </ButtonContainer>
                         </Link>

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect} from 'react';
 import NavBar from './NavBar';
 import Modal from './Modal';
-import Script from 'next/script'
+import Script from 'next/script';
 
 export default function Layout({ children }) {
+    // useEffect(()=>{console.log(styles)},[])
     return (
         <>
             <Script
@@ -11,7 +12,7 @@ export default function Layout({ children }) {
                 crossOrigin="anonymous"
                 strategy='beforeInteractive'
             />
-            <NavBar />
+            <NavBar/>
             {children}
             <Modal />
         </>

@@ -1,0 +1,59 @@
+@use 'colors' as *;
+@use 'shaddows' as *;
+
+
+// body {
+//   font-family: "Oswald", sans-serif !important;
+//   background: $bg3;
+
+//   color: #aeafb3;
+// }
+
+// a {
+//   color: inherit;
+//   text-decoration: none;
+// }
+
+// * {
+//   box-sizing: border-box;
+// }
+
+.card {
+  background: var($bg-gradient) !important;
+}
+
+.div {
+  background: var($bg-gradient) !important;
+}
+
+.container-neumorph {
+  background: var($bg-gradient-inv);
+  @include outer-shaddow;
+  border-radius: 32px;
+}
+
+.place-holder-neumorph {
+  @include inner-shaddow;
+  border-radius: 16px;
+}
+
+// button {
+//   background: $bg-gradient2;
+
+//   border-radius: 32px;
+//   border: 1px solid #1f2227;
+//   color: var($mainBlue);
+//   box-shadow: 4px 4px 8px var($Shaddow1), -4px -4px 8px var(--Shaddow2);
+// }
+
+.text-blue {
+  color: var($mainBlue);
+}
+
+.text-bright {
+  color: var($lightBlue);
+}
+
+.no-background {
+  background: none;
+}

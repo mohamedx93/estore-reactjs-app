@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
+import styles from '../styles/Product.module.scss'
 import Link from "next/link";
 import { ProductContext } from "../context";
-import PropTypes from 'prop-types'
+
 
 
 export default function Product({ product: { id, title, img, price, inCart } }) {
@@ -10,7 +11,7 @@ export default function Product({ product: { id, title, img, price, inCart } }) 
     
     return (
         <ProductWrapper className='col-9 col-md-6 col-lg-3 mx-auto my-3'>
-            <div className="card">
+            <div className={`${styles.card}`}>
                 <div className="img-container p-5" onClick={() => context.handleDetail(id)}>
                     <Link href="/details" >
                         <img src={img} alt='product' className="card-img-top" />
@@ -20,7 +21,9 @@ export default function Product({ product: { id, title, img, price, inCart } }) 
                             context.addToCart(id);
                             context.openModal(id);
                         }}>
-                        {inCart ? (<p className="text-capitalize mb-0 " disabled>in cart</p>) : (<i className='fas fa-cart-plus' />)}
+                        {inCart ? (
+                            <p className="text-capitalize mb-0 " disabled>in cart</p>) :
+                            (<i className='fas fa-cart-plus' aria-hidden />)}
                     </button>
                 </div>
                 <div className="card-footer d-flex justify-content-between">
@@ -35,15 +38,7 @@ export default function Product({ product: { id, title, img, price, inCart } }) 
     );
 }
 
-Product.propTypes = {
-    product: PropTypes.shape({
-        id: PropTypes.number,
-        img: PropTypes.string,
-        title: PropTypes.string,
-        price: PropTypes.number,
-        inCart: PropTypes.bool,
-    }).isRequired
-};
+
 
 const ProductWrapper = styled.div`
     .card{
@@ -51,17 +46,18 @@ const ProductWrapper = styled.div`
         transition: all 0.3s linear;
     }
     .card-footer{
+        border-radius: 0 0 18px  18px  ;
         border-top-color: transparent;
         background-color: transparent; 
         transition: all 0.3s linear;
     }
     &:hover{
         .card{
-            border: 0.04rem sold rgba(0,0,0,0.2);
-            box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.2);
+            /* border: 0.04rem sold rgba(0,0,0,0.2); */
+            /* box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.2); */
         }
         .card-footer{
-            background: rgba(247,247,247)
+            background: var(--mainBlue);
         }
     }
     .img-container{
@@ -79,9 +75,9 @@ const ProductWrapper = styled.div`
         bottom: 0;
         right: 0;
         padding: 0.2rem 0.4rem;
-        background: var(--lightBlue);
-        border: none;
-        color: var(--mainWhite);
+        /* background: var(--lightBlue); */
+        /* border: none; */
+        /* color: var(--mainWhite); */
         font-size: 1.4rem;
         border-radius: 0.5rem 0 0 0;
         transform: translate(100%, 100%);

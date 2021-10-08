@@ -24,7 +24,8 @@ code {
 } */
 
 :root {
-  --mainBlue: var(--bs-blue);
+  --mainBlue: #4f7efe;
+  /* --mainBlue: var(--bs-blue); */
   --lightBlue: var(--bs-cyan);
   --mainWhite: var(--bs-light);
   --mainDark: var(--bs-dark);
@@ -36,37 +37,19 @@ code {
   --Shaddow2: #444446;
   --SforIcon1: #2a2b2c;
   --SforIcon2: #020305;
+  --bg-gradient: linear-gradient(135deg, var(--bg1), var(--bg2));
+  --bg-gradient-inv: linear-gradient(135deg, var(--bg2), var(--bg1));
 }
 
 
 body {
   font-family: 'Oswald', sans-serif !important;
   /* background: var(--mainWhite) !important; */
-  color: var(--mainDark);
-}
+  background: var(--bg-gradient-inv);
 
-a {
-  color: inherit;
-  text-decoration: none;
+  color: #AEAFB3;
 }
 
 * {
   box-sizing: border-box;
-  background: linear-gradient(135deg, var(--bg1),var(--bg2));
-}
-
-.container{
-  background: linear-gradient(-135deg, var(--bg1),var(--bg2));
-  box-shadow: 0 0 8px 6px var(--box-shaddow);
-  border-radius: 32px;
-}
-
-
-
-.text-blue {
-  color: var(--mainBlue);
-}
-
-.text-bright {
-  color: var(--lightBlue);
 }

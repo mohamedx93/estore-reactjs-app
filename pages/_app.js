@@ -1,7 +1,8 @@
 import React,{useEffect} from 'react';
 import Layout from '../components/Layout'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import '../styles/globals.css'
+import '../styles/globals.css';
+
 import { ProductProvider } from '../context'
 import  Head from 'next/head';
 
@@ -16,7 +17,7 @@ function MyApp({ Component, pageProps }) {
 
       </Head>
       <ProductProvider>
-        <Layout pageProps={pageProps}>
+        <Layout pageProps={pageProps} >
           <Component {...pageProps} />
         </Layout>
       </ProductProvider>

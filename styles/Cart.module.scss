@@ -1,0 +1,39 @@
+@use 'colors' as *;
+@use 'shaddows' as *;
+
+
+.btnBlack {
+  text-align: center;
+  background: $bg-gradient3;
+border: none;
+  /* linear-gradient(90deg, #1F2227, #272B30); */
+  color: #aeafb3;
+  @include outer-shaddow2;
+
+  font-size: 0.8rem !important;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50% !important;
+  &:hover {
+    background: $mainDark !important;
+    color: $mainWhite !important;
+  }
+  &:active{
+      @include inner-shaddow;
+  }
+}
+
+.qte {
+  font-size: 2rem;
+  color: #aeafb3;
+}
+
+.cartIcon {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: $mainYellow;
+}
+
+.shaddowedBtn{
+  @include outer-shaddow;
+}

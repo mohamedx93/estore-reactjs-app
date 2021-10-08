@@ -1,0 +1,12 @@
+@use 'colors' as *;
+@use 'shaddows' as *;
+
+.textTitle {
+    font-family: 'Roboto', cursive;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+}
+
+ .textBlue {
+    color: $mainBlue;
+  }

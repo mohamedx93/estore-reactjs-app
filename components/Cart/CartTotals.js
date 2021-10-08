@@ -1,5 +1,8 @@
 import React from 'react'
 import Link from 'next/link';
+import styled from 'styled-components';
+import styles from '../../styles/Cart.module.scss'
+
 
 export default function CartTotals({ value }) {
     const { cartSubTotal, cartTax, cartTotal, clearCart } = value;
@@ -9,29 +12,29 @@ export default function CartTotals({ value }) {
                 <div className="row">
                     <div className="col-10 col-sm-8 mt-2 ms-sm-5 ms-md-auto text-capitalize text-end">
                         <Link href='/'>
-                            <button className="btn btn-outline-danger text-uppercase mb-3 px-5"
+                            <ClearCartBtn className={`btn text-uppercase mb-3 px-5 ${styles.shaddowedBtn}`}
                                 type='button'
                                 onClick={() => clearCart()}>
                                 clear cart
-                            </button>
+                            </ClearCartBtn>
                         </Link>
                         <h5>
                             <span className="text-title">
-                        subtotal : 
+                                subtotal :
                             </span>
                             <strong>$ {cartSubTotal}</strong>
                         </h5>
-                        
+
                         <h5>
                             <span className="text-title">
-                        tax : 
+                                tax :
                             </span>
                             <strong>$ {cartTax}</strong>
                         </h5>
-                        
+
                         <h5>
                             <span className="text-title">
-                        total : 
+                                total :
                             </span>
                             <strong>$ {cartTotal}</strong>
                         </h5>
@@ -42,3 +45,18 @@ export default function CartTotals({ value }) {
         </React.Fragment>
     )
 }
+
+
+const ClearCartBtn = styled.button`
+    color: var(--bs-danger);
+    transition: ease-in-out;
+    transition-duration: 600ms;
+    border-radius: 16px;
+    outline: none;
+    border: none;
+    &:hover{
+color: var(--bs-light);
+background: var(--bs-danger);
+    }
+
+`

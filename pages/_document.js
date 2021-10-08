@@ -1,7 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { useDebugValue } from 'react';
 import { ServerStyleSheet } from 'styled-components';
-
 class MyDocument extends Document {
     static async getInitialProps(ctx) {
         const sheet = new ServerStyleSheet()
@@ -48,13 +47,13 @@ class MyDocument extends Document {
                     <link rel="preconnect" href="https://fonts.googleapis.com" key='googleapis'/>
                     <link rel="preconnect" href="https://fonts.gstatic.com" key='gstatic' crossOrigin='true' />
                     <link
-                        href="https://fonts.googleapis.com/css2?family=Oswald&family=Permanent+Marker&display=swap"
+                        href="https://fonts.googleapis.com/css2?family=Oswald&family=Ubuntu&display=swap"
                         rel="stylesheet" key='fonts'
                     />
                     {/* <!-- Font Awesome --> */}
 
                 </Head>
-                <body>
+                <body >
                     <Main />
                     <NextScript />
                 </body>
