@@ -1,5 +1,9 @@
 @use 'colors' as *;
-@use 'shaddows' as *;
+@use 'mixins' as *;
+@use 'typography' as *;
+
+
+
 
 
 // body {
@@ -14,7 +18,7 @@
 //   text-decoration: none;
 // }
 
-// * {
+//  {
 //   box-sizing: border-box;
 // }
 

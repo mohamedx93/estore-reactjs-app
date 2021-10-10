@@ -1,5 +1,8 @@
-@use "colors" as *;
-@use "shaddows" as *;
+@use 'colors' as *;
+@use 'mixins' as *;
+@use 'typography' as *;
+
+
 
 .card {
   //   background: $bg-gradient;

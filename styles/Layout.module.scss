@@ -1,5 +1,6 @@
 @use "colors" as *;
-@use "shaddows" as *;
+@use "mixins" as *;
+@use "typography" as *;
 
 .shaddowedBtn {
   background: $bg-gradient4;
@@ -11,18 +12,49 @@
     text-decoration: none;
   }
   button {
-    color: $lightBlue;
     background: $bg-gradient4;
     @include outer-shaddow;
-    transition: ease-in-out;
-  &:hover{
-    @include text-neon($lightBlue, $lightBlue);
+    transition: linear;
   }
-  &:active{
-    @include inner-shaddow;
+  .navStore {
+    color: $mainYellow;
+
+    .logo {
+      fill: $mainYellow;
+      scale: 1.5;
+    }
+
+    &:hover {
+      @include text-neon($mainYellow, $mainYellow);
+      path {
+        filter: drop-shadow(0 0 3px $mainYellow);
+      }
+    }
+    &:active {
+      @include inner-outer-shaddow;
+    }
   }
+
+  .navCart {
+    color: $lightBlue;
+
+    &:hover {
+      @include text-neon($lightBlue, $lightBlue);
+    }
+    &:active {
+      @include inner-outer-shaddow;
+    }
   }
 }
 
 .modal {
+}
+.overlay {
+  @include outer-shaddow-container;
+}
+.modalBtnStore {
+  @include btn-3d($hover-color: $mainYellow);
+}
+.modalBtnCart {
+  @include btn-3d($hover-color: $mainBlue);
 }

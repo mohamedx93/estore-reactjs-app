@@ -3,7 +3,7 @@ $lightBlue: var(--bs-cyan);
 $mainBlue: #4f7efe;
 $mainWhite: var(--bs-light);
 $mainDark: var(--bs-dark);
-$mainYellow: bar(--bs-yellow);
+$mainYellow: var(--bs-yellow);
 $bg1: #040406;
 $bg2: #323234;
 $bg3: #33393e;
@@ -17,3 +17,25 @@ $bg-gradient-inv: linear-gradient(135deg, var(--bg2), var(--bg1));
 $bg-gradient2: linear-gradient(90deg, #2c2f35, #1f2125);
 $bg-gradient3: linear-gradient(to bottom, #33393e, #1c1d24);
 $bg-gradient4: linear-gradient(90deg, #2C2F35, #1F2125);
+
+
+:export {
+    lightBlue: $lightBlue;
+    mainBlue: $mainBlue;
+    mainWhite: $mainWhite;
+    mainDark: $mainDark;
+    mainYellow: $mainYellow;
+    bg1: $bg1;
+    bg2: $bg2;
+    bg3: $bg3;
+    box-shaddow: $box-shaddow;
+    Shaddow1: $Shaddow1;
+    Shaddow2: $Shaddow2;
+    SforIcon1: $SforIcon1;
+    SforIcon2: $SforIcon2;
+    bg-gradient: $bg-gradient;
+    bg-gradient-inv: $bg-gradient-inv;
+    bg-gradient2: $bg-gradient2;
+    bg-gradient3: $bg-gradient3;
+    bg-gradient4: $bg-gradient4;
+}

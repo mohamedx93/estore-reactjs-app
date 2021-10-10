@@ -12,7 +12,6 @@ export const ButtonContainer = styled.button`
     padding: 0.2rem 0.5rem;
     cursor: pointer;
     transition: 0.5s ease-in-out;
-    
     &:hover{
         /* background: ${props => !props.cart ? "var(--bs-info)" : "var(--bs-warning)"}; */
         color: var(--mainWhite);

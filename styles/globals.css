@@ -25,11 +25,10 @@ code {
 
 :root {
   --mainBlue: #4f7efe;
-  /* --mainBlue: var(--bs-blue); */
-  --lightBlue: var(--bs-cyan);
+  --mainBlue: var(--bs-blue); 
   --mainWhite: var(--bs-light);
   --mainDark: var(--bs-dark);
-  --mainYellow: bar(--bs-yellow);
+  --mainYellow: var(--bs-yellow);
   --bg1: #040406;
   --bg2: #323234;
   --box-shaddow: #040406;

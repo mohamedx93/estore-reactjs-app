@@ -1,5 +1,8 @@
 @use 'colors' as *;
-@use 'shaddows' as *;
+@use 'mixins' as *;
+@use 'typography' as *;
+
+
 
 .textTitle {
     font-family: 'Roboto', cursive;

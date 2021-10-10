@@ -1,5 +1,7 @@
-@use "colors" as *;
-@use "shaddows" as *;
+@use 'colors' as *;
+@use 'mixins' as *;
+@use 'typography' as *;
+
 
 .home {
   a {
@@ -36,15 +38,5 @@
     }
   }
 
-  .text-blue {
-    color: var(--mainBlue);
-  }
 
-  .text-bright {
-    color: var(--lightBlue);
-  }
-
-  .no-background {
-    background: none;
-  }
 }

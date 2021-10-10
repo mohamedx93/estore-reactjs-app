@@ -1,0 +1,57 @@
+@use "colors" as *;
+
+@mixin container-shaddow {
+  box-shadow: 0px 0px 12px 10px $box-shaddow;
+}
+
+@mixin outer-shaddow {
+  box-shadow: 4px 4px 8px 2px $Shaddow1, -2px -2px 6px $Shaddow2;
+}
+
+@mixin outer-shaddow-container {
+  box-shadow: 4px 4px 8px 2px $Shaddow1, -4px -4px 8px 2px $Shaddow2;
+}
+
+@mixin inner-shaddow {
+  box-shadow: inset 4px 4px 8px $Shaddow1, inset -4px -4px 8px 2px $Shaddow2;
+}
+@mixin outer-shaddow2 {
+  box-shadow: inset 3px 3px 8px $SforIcon1, inset -3px -3px 8px $SforIcon2;
+}
+@mixin inner-outer-shaddow {
+  box-shadow:  4px 4px 8px 2px $Shaddow1, -2px -2px 6px $Shaddow2,inset 4px 4px 8px $Shaddow1, inset -4px -4px 8px 2px $Shaddow2;
+}
+
+@mixin text-neon($neon: $mainBlue, $text: white) {
+  color: $text;
+  
+  text-shadow:
+    // 0 0 4px $text,
+    // 0 0 7px $text,
+    // 0 0 10px $text,
+    // 0 0 12px $neon,
+    // 0 0 15px $neon,
+    // 0 0 18px $neon,
+    // 0 0 22px $neon,
+    0 0 15px $neon;
+}
+
+@mixin btn-3d($color: white, $hover-color: $mainBlue, $bg: $bg3 ) {
+  background: $bg;
+  color: $color;
+  @include outer-shaddow;
+
+  &:hover {
+    color: $hover-color !important;
+  }
+  &:active {
+    @include inner-outer-shaddow;
+  }
+}
+
+@mixin light-elevation {
+  box-shadow: 0px 4px 5px 3px $Shaddow1;
+}
+@mixin medium-elevation {
+  box-shadow: 0px 11px 15px 7px $Shaddow1;
+}
