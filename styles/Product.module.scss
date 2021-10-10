@@ -5,8 +5,8 @@
 
 
 .card {
-  //   background: $bg-gradient;
-  background: $bg-gradient-inv;
+  //   background: $dark-gradient;
+  background: $dark-gradient-inv;
   @include container-shaddow;
   outline: none;
   border: none;
@@ -27,7 +27,7 @@
     bottom: 0;
     right: 0;
     padding: 0.2rem 0.4rem;
-    background: $bg3;
+    background: $dark5;
     border: none;
     color: var(--mainWhite);
     font-size: 1.4rem;

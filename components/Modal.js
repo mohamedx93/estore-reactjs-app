@@ -57,7 +57,7 @@ display: flex;
 align-items: center;
 justify-content: center; 
  #overlay{
-     background: var(--bg-gradient-inv);
+     background: var(--dark-gradient-inv);
      border-radius: 1.4rem;
  }
 `

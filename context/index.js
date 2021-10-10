@@ -18,15 +18,15 @@ function ProductProvider(props) {
     const [cartTax, setCartTax] = useState(0);
     const [cartTotal, setCartTotal] = useState(0);
 
-    
-    useEffect(() => {
-        const cloneProducts = () => {
+    const cloneProducts = () => {
             let tempProducts = [];
             storeProducts.forEach(item => {
                 tempProducts = [...tempProducts, { ...item }]
             });
             return tempProducts;
-        }
+    }
+    
+    useEffect(() => {    
         let tempProducts = cloneProducts();
         setProducts(tempProducts);
     }, [])

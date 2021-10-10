@@ -34,17 +34,17 @@ code {
   --box-shaddow: #040406;
   --Shaddow1: #040406;
   --Shaddow2: #444446;
-  --SforIcon1: #2a2b2c;
-  --SforIcon2: #020305;
-  --bg-gradient: linear-gradient(135deg, var(--bg1), var(--bg2));
-  --bg-gradient-inv: linear-gradient(135deg, var(--bg2), var(--bg1));
+  --dark3: #2a2b2c;
+  --dark2: #020305;
+  --dark-gradient: linear-gradient(135deg, var(--bg1), var(--bg2));
+  --dark-gradient-inv: linear-gradient(135deg, var(--bg2), var(--bg1));
 }
 
 
 body {
   font-family: 'Oswald', sans-serif !important;
   /* background: var(--mainWhite) !important; */
-  background: var(--bg-gradient-inv);
+  background: var(--dark-gradient-inv);
 
   color: #AEAFB3;
 }

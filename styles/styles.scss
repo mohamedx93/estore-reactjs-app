@@ -8,7 +8,7 @@
 
 // body {
 //   font-family: "Oswald", sans-serif !important;
-//   background: $bg3;
+//   background: $dark5;
 
 //   color: #aeafb3;
 // }
@@ -23,15 +23,15 @@
 // }
 
 .card {
-  background: var($bg-gradient) !important;
+  background: var($dark-gradient) !important;
 }
 
 .div {
-  background: var($bg-gradient) !important;
+  background: var($dark-gradient) !important;
 }
 
 .container-neumorph {
-  background: var($bg-gradient-inv);
+  background: var($dark-gradient-inv);
   @include outer-shaddow;
   border-radius: 32px;
 }
@@ -42,12 +42,12 @@
 }
 
 // button {
-//   background: $bg-gradient2;
+//   background: $dark-gradient2;
 
 //   border-radius: 32px;
 //   border: 1px solid #1f2227;
 //   color: var($mainBlue);
-//   box-shadow: 4px 4px 8px var($Shaddow1), -4px -4px 8px var(--Shaddow2);
+//   box-shadow: 4px 4px 8px var($dark1), -4px -4px 8px var(--Shaddow2);
 // }
 
 .text-blue {

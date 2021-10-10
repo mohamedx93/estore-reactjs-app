@@ -3,7 +3,7 @@
 @use "typography" as *;
 
 .shaddowedBtn {
-  background: $bg-gradient4;
+  background: $dark-gradient4;
   @include outer-shaddow;
 }
 .navBar {
@@ -12,7 +12,7 @@
     text-decoration: none;
   }
   button {
-    background: $bg-gradient4;
+    background: $dark-gradient4;
     @include outer-shaddow;
     transition: linear;
   }
