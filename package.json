@@ -9,13 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.10.3",
+    "@types/react": "^17.0.27",
+    "@types/react-dom": "^17.0.9",
     "bootstrap": "^5.1.0",
     "next": "11.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-is": "^17.0.2",
     "sass": "^1.42.1",
-    "styled-components": "^5.3.1"
+    "styled-components": "^5.3.1",
+    "typescript": "^4.4.3"
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.14",
