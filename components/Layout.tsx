@@ -3,7 +3,7 @@ import NavBar from './NavBar';
 import Modal from './Modal';
 import Script from 'next/script';
 
-export default function Layout({ children }) {
+export default function Layout({ children }:{children:React.ReactNode,pageProps:any}) {
     // useEffect(()=>{console.log(styles)},[])
     return (
         <>
