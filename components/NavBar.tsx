@@ -30,8 +30,7 @@ export default function NavBar() {
                     </Link>
                 </li>
             </ul>
-            <Link className="ms-auto" href="/cart">
-                {/* <ButtonContainer className={`${styles.shaddowedBtn}`}> */}
+            <Link  href="/cart">
                 <ButtonContainer className={styles.navCart} >
                     <span className="me-2">
                         <i className="fas fa-cart-plus"></i>

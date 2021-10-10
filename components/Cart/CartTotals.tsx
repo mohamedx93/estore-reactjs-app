@@ -2,9 +2,10 @@ import React from 'react'
 import Link from 'next/link';
 import styled from 'styled-components';
 import styles from '../../styles/Cart.module.scss'
+import { ProductContextInterface } from '../../context';
 
 
-export default function CartTotals({ value }) {
+export default function CartTotals({ value }:{value:ProductContextInterface}) {
     const { cartSubTotal, cartTax, cartTotal, clearCart } = value;
     return (
         <React.Fragment>

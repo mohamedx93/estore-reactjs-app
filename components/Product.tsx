@@ -3,26 +3,27 @@ import styled from "styled-components";
 import styles from '../styles/Product.module.scss'
 import Link from "next/link";
 import { ProductContext } from "../context";
+import { ProductInterface } from '../context';
 
 
 
-export default function Product({ product: { id, title, img, price, inCart } }) {
+export default function Product({ product  }: { product : ProductInterface }) {
     const context = useContext(ProductContext)
-    
+    const { id, title, img, price, inCart } = product;
     return (
         <ProductWrapper className='col-9 col-md-6 col-lg-3 mx-auto my-3'>
             <div className={`${styles.card}`}>
-                <div className="img-container p-5" onClick={() => context.handleDetail(id)}>
+                <div className="img-container p-5" onClick={() => context.handleDetail(id||-1)}>
                     <Link href="/details" >
                         <img src={img} alt='product' className="card-img-top" />
                     </Link>
                     <button className="cart-btn" disabled={inCart ? true : false}
                         onClick={() => {
-                            context.addToCart(id);
-                            context.openModal(id);
+                            context.addToCart(id||-1);
+                            context.openModal(id||-1);
                         }}>
                         {inCart ? (
-                            <p className="text-capitalize mb-0 " disabled>in cart</p>) :
+                            <p className="text-capitalize mb-0 ">in cart</p>) :
                             (<i className='fas fa-cart-plus' aria-hidden />)}
                     </button>
                 </div>

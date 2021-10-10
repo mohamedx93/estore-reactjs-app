@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-export default function Default({location}) {
+export default function Default({location}:{location:any}) {
     return (
         <div className="container">
             <div className="row">

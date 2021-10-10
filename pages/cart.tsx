@@ -2,14 +2,14 @@ import React, { useContext } from 'react'
 import Title from '../components/Title';
 import CartColumns from '../components/Cart/CartColumns';
 import EmptyCart from '../components/Cart/EmptyCart';
-import { ProductContext } from '../context'
+import { ProductContext, ProductContextInterface, ProductInterface } from '../context'
 import CartList from '../components/Cart/CartList';
 import CartTotals from '../components/Cart/CartTotals';
 
 
-export default function Cart() {
-    const context = useContext(ProductContext)
-    const { cart } = context;
+export default function Cart(): React.ReactElement {
+    const context:ProductContextInterface = useContext(ProductContext)
+    const { cart }: {cart:ProductInterface[]} = context;
     return (
         <section>
             {cart.length > 0 ?

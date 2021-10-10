@@ -1,19 +1,17 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { ProductContext } from '../context'
+import { ProductContext, ProductContextInterface, ProductInterface } from '../context'
 import Link from 'next/link';
 import { ButtonContainer } from '../components/Button'
 
 
-export default function Details() {
-    const context = useContext(ProductContext);
-    //let { id, company, img, price, info, title, inCart } = context.detailedProduct;
-    //const currentProduct = useRef({...context.detailProduct})
-    const [detailProduct, setDetailProduct] = useState({ ...context.detailedProduct });
+export default function Details(): React.ReactElement {
+    const context:ProductContextInterface = useContext(ProductContext);
 
-    // const [addedToCart, setAddedToCart] = useState(inCart);
+    const [detailProduct, setDetailProduct] = useState<ProductInterface>({ ...context.detailedProduct });
+
     useEffect(() => {
         setDetailProduct({ ...context.detailedProduct })
-    }, [context.detailedProduct.inCart]);
+    }, [context]);
     return (
         <div className="container py-5">
             <div className="row">
@@ -38,10 +36,10 @@ export default function Details() {
                                 back to product
                             </ButtonContainer>
                         </Link>
-                        <ButtonContainer cart disabled={detailProduct.inCart}
+                        <ButtonContainer disabled={detailProduct.inCart}
                             onClick={() => {
-                                context.addToCart(detailProduct.id);
-                                context.openModal(detailProduct.id);
+                                context.addToCart(detailProduct.id||-1);
+                                context.openModal(detailProduct.id||-1);
                             }}>
                             {detailProduct.inCart ? "inCart" : "add to Cart"}
                         </ButtonContainer>

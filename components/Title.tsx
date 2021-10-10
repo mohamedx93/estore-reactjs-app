@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '../styles/Title.module.scss';
 
 
-export default function Title({ name, title }) {
+export default function Title({ name, title }:{name?:string, title?:string}) {
     return (
         <div className='row no-background'>
             <div className={`col-10 mx-auto my-2 text-center no-background ${styles.textTitle}`}>
