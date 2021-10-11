@@ -37,7 +37,7 @@ export interface ProductContextInterface {
     modalOpen: boolean;
     modalProduct: ProductInterface | undefined;
     openModal: (id: number) => void;
-    closeModal: (id: number) => void;
+    closeModal: () => void;
     cartSubTotal: number;
     cartTax: number;
     cartTotal: number;

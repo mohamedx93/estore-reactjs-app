@@ -1,17 +1,18 @@
 import React, { useContext } from 'react'
 import styled from "styled-components";
-import { ProductContext } from '../context';
+import { ProductContext, ProductInterface } from '../context';
 import { ButtonContainer } from './Button';
 import Link from "next/link";
-import styles from '../styles/Layout.module.scss'
+import styles from "../styles/Layout.module.scss"
 
 
+interface ProductModalInterface { img?: string | undefined; title?: string | undefined; price?: number | undefined }
 
 
 export default function Modal() {
     const context = useContext(ProductContext);
-    const { modalOpen, closeModal } = context;
-    const { id, img, title, price, inCart } = context.detailedProduct;
+    const { modalOpen, closeModal,detailedProduct } = context;
+    const { img, title, price, } = detailedProduct as any;
     if (!modalOpen) {
         return null;
     }
@@ -33,12 +34,12 @@ export default function Modal() {
                                 </ButtonContainer>
                             </Link>
                             <Link href='/cart'>
-                                <ButtonContainer className={styles.modalBtnCart} cart onClick={() => { closeModal(); }} >
-                                go to the cart
+                                <ButtonContainer className={styles.modalBtnCart} onClick={() => { closeModal(); }} >
+                                    go to the cart
                                 </ButtonContainer>
                             </Link>
+                        </div>
                     </div>
-                </div>
                 </div>
             </ModalContainer >
         );
