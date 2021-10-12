@@ -1,13 +1,13 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { ProductContext, ProductContextInterface, ProductInterface } from '../context'
+import { ProductContext, IProductContext, IProduct } from '../context'
 import Link from 'next/link';
 import { ButtonContainer } from '../components/Button'
 
 
 export default function Details(): React.ReactElement {
-    const context:ProductContextInterface = useContext(ProductContext);
+    const context:IProductContext = useContext(ProductContext);
 
-    const [detailProduct, setDetailProduct] = useState<ProductInterface>({ ...context.detailedProduct });
+    const [detailProduct, setDetailProduct] = useState<IProduct>({ ...context.detailedProduct });
 
     useEffect(() => {
         setDetailProduct({ ...context.detailedProduct })

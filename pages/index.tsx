@@ -2,11 +2,11 @@ import React, { useContext } from 'react'
 import styles from '../styles/Home.module.scss'
 import Title from '../components/Title'
 import Product from '../components/Product';
-import { ProductContext, ProductContextInterface, ProductInterface } from '../context';
+import { ProductContext, IProductContext, IProduct } from '../context';
 
 
 export default function Home():React.ReactElement {
-  const  context:ProductContextInterface = useContext(ProductContext);
+  const  context:IProductContext = useContext(ProductContext);
   
   return (
       <>
@@ -14,7 +14,7 @@ export default function Home():React.ReactElement {
           <div className="container">
             <Title name="our" title="products" />
             <div className="row">
-            {context.products.map((product:ProductInterface) => { return <Product key={product.id} product={product} /> })}
+            {context.products.map((product:IProduct) => { return <Product key={product.id} product={product} /> })}
             </div>
           </div>
         </div>

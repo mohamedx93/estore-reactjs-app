@@ -3,11 +3,11 @@ import styled from "styled-components";
 import styles from '../styles/Product.module.scss'
 import Link from "next/link";
 import { ProductContext } from "../context";
-import { ProductInterface } from '../context';
+import { IProduct } from '../context';
 
 
 
-export default function Product({ product  }: { product : ProductInterface }) {
+export default function Product({ product  }: { product : IProduct }) {
     const context = useContext(ProductContext)
     const { id, title, img, price, inCart } = product;
     return (

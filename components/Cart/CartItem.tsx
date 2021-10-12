@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from '../../styles/Cart.module.scss'
-import { ProductInterface,ProductContextInterface } from '../../context/index';
-export default function CartItem({ item, value }:{item: ProductInterface, value: ProductContextInterface}) {
+import { IProduct,IProductContext } from '../../context/index';
+export default function CartItem({ item, value }:{item: IProduct, value: IProductContext}) {
     const { id, title, price, total, img, count } = item;
     const { increment, decrement, removeItem } = value;
     return (

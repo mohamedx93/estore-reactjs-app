@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { storeProducts, detailProduct } from './data'
 
-export interface ProductInterface {
+export interface IProduct {
     id?: number;
     title?: string;
     img?: string;
@@ -13,7 +13,7 @@ export interface ProductInterface {
     total?: number
 }
 
-const createDefaultProduct: () => ProductInterface = () => {
+const createDefaultProduct: () => IProduct = () => {
 
     return {
         id: 0,
@@ -28,14 +28,14 @@ const createDefaultProduct: () => ProductInterface = () => {
     };
 }
 
-export interface ProductContextInterface {
-    products: ProductInterface[];
-    detailedProduct: ProductInterface | undefined;
+export interface IProductContext {
+    products: IProduct[];
+    detailedProduct: IProduct | undefined;
     handleDetail: (id: number) => void;
-    cart: ProductInterface[];
+    cart: IProduct[];
     addToCart: (id: number) => void;
     modalOpen: boolean;
-    modalProduct: ProductInterface | undefined;
+    modalProduct: IProduct | undefined;
     openModal: (id: number) => void;
     closeModal: () => void;
     cartSubTotal: number;
@@ -47,7 +47,7 @@ export interface ProductContextInterface {
     clearCart: () => void
 }
 
-const createDefaultContext: () => ProductContextInterface = () => {
+const createDefaultContext: () => IProductContext = () => {
     return {
         products: [],
         detailedProduct: createDefaultProduct(),
@@ -68,7 +68,7 @@ const createDefaultContext: () => ProductContextInterface = () => {
     }
 }
 
-export const ProductContext = React.createContext<ProductContextInterface>(createDefaultContext())
+export const ProductContext = React.createContext<IProductContext>(createDefaultContext())
 //Provider
 
 //Consumer
@@ -76,20 +76,20 @@ export const ProductContext = React.createContext<ProductContextInterface>(creat
 
 
 function ProductProvider({ children }: { children: React.ReactNode }): React.ReactElement {
-    const [products, setProducts] = useState<ProductInterface[]>([]);
-    const [detailedProduct, setDetailedProduct] = useState<ProductInterface | undefined>({ ...detailProduct });
-    const [cart, setCart] = useState<ProductInterface[]>([]); //useState([]);
+    const [products, setProducts] = useState<IProduct[]>([]);
+    const [detailedProduct, setDetailedProduct] = useState<IProduct | undefined>({ ...detailProduct });
+    const [cart, setCart] = useState<IProduct[]>([]); //useState([]);
     const [modalOpen, setModalOpen] = useState<boolean>(false);
-    const [modalProduct, setModalProduct] = useState<ProductInterface | undefined>({ ...detailProduct })
+    const [modalProduct, setModalProduct] = useState<IProduct | undefined>({ ...detailProduct })
     const [cartSubTotal, setCartSubTotal] = useState<number>(0);
     const [cartTax, setCartTax] = useState<number>(0);
     const [cartTotal, setCartTotal] = useState<number>(0);
 
 
 
-    const cloneProducts: () => ProductInterface[] = () => {
-        let tempProducts: ProductInterface[] = [];
-        storeProducts.forEach((item: ProductInterface) => {
+    const cloneProducts: () => IProduct[] = () => {
+        let tempProducts: IProduct[] = [];
+        storeProducts.forEach((item: IProduct) => {
             tempProducts = [...tempProducts, { ...item }]
         });
         return tempProducts;
@@ -103,11 +103,11 @@ function ProductProvider({ children }: { children: React.ReactNode }): React.Rea
         addTotals();
     }, [cart])
 
-    const getItem: (id: number) => ProductInterface | undefined = (id) => {
-        return products.find((item: ProductInterface) => item.id === id);
+    const getItem: (id: number) => IProduct | undefined = (id) => {
+        return products.find((item: IProduct) => item.id === id);
     }
     const handleDetail: (id: number) => void = (id) => {
-        const product: ProductInterface = getItem(id) || createDefaultProduct();
+        const product: IProduct = getItem(id) || createDefaultProduct();
         setDetailedProduct({ ...product });
     }
     const addToCart: (id: number) => void = (id) => {
@@ -136,7 +136,7 @@ function ProductProvider({ children }: { children: React.ReactNode }): React.Rea
     const increment: (id: number) => void = (id) => {
 
         const tempCart = [...cart];
-        const selectedProduct: ProductInterface = tempCart.find(item => item.id === id) || createDefaultProduct();
+        const selectedProduct: IProduct = tempCart.find(item => item.id === id) || createDefaultProduct();
         const prevCount = selectedProduct.count || 0;
         const prevTotal = selectedProduct.total || 0;
         const price = selectedProduct.price || 0;
