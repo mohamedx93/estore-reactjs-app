@@ -1,14 +1,5 @@
 import mongoose from "mongoose";
-
-interface IProductModel {
-    title: string,
-    img: string,
-    price: number,
-    company: string,
-    info?: string,
-    inCart?: boolean,
-    count?: number,
-}
+import { IProductModel } from "../constants/Interfaces";
 
 
 const ProductSchema = new mongoose.Schema<IProductModel>({

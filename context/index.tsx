@@ -1,17 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { storeProducts, detailProduct } from './data'
+import {IProduct, IProductContext} from '../constants/Interfaces'
 
-export interface IProduct {
-    id?: number;
-    title?: string;
-    img?: string;
-    price?: number;
-    company?: string;
-    info?: string;
-    inCart?: boolean;
-    count?: number;
-    total?: number
-}
 
 const createDefaultProduct: () => IProduct = () => {
 
@@ -28,24 +18,6 @@ const createDefaultProduct: () => IProduct = () => {
     };
 }
 
-export interface IProductContext {
-    products: IProduct[];
-    detailedProduct: IProduct | undefined;
-    handleDetail: (id: number) => void;
-    cart: IProduct[];
-    addToCart: (id: number) => void;
-    modalOpen: boolean;
-    modalProduct: IProduct | undefined;
-    openModal: (id: number) => void;
-    closeModal: () => void;
-    cartSubTotal: number;
-    cartTax: number;
-    cartTotal: number;
-    increment: (id: number) => void;
-    decrement: (id: number) => void;
-    removeItem: (id: number) => void;
-    clearCart: () => void
-}
 
 const createDefaultContext: () => IProductContext = () => {
     return {
