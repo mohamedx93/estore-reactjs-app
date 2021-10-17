@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
-import { setOriginalNode } from "typescript";
+
+
 
 
 export interface IProduct {
@@ -58,5 +59,6 @@ export interface ISignUp {
     avatar?: string,
     email: string,
 
-
 }
+
+export interface IUserModel extends ISignUp { };
