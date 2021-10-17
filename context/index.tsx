@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useReducer } from 'react'
 import { storeProducts, detailProduct } from './data'
-import {IProduct, IProductContext} from '../constants/Interfaces'
+import { IProduct, IProductContext } from '../constants/Interfaces'
+import Reducer from './Reducer.tsx';
 
 
 const createDefaultProduct: () => IProduct = () => {
@@ -76,7 +77,7 @@ function ProductProvider({ children }: { children: React.ReactNode }): React.Rea
     }, [cart])
 
     const getItem: (id: number) => IProduct | undefined = (id) => {
-        return products.find((item: IProduct) => item.id === id);
+        return products.find((item: IProduct) => item._id === id);
     }
     const handleDetail: (id: number) => void = (id) => {
         const product: IProduct = getItem(id) || createDefaultProduct();
@@ -92,7 +93,7 @@ function ProductProvider({ children }: { children: React.ReactNode }): React.Rea
         product.total = price;
         setProducts(tempProducts);
         setCart([...cart, product]);
-        handleDetail(product.id || -1);
+        handleDetail(product._id || -1);
     }
 
     const openModal: (id: number) => void = (id) => {
@@ -108,7 +109,7 @@ function ProductProvider({ children }: { children: React.ReactNode }): React.Rea
     const increment: (id: number) => void = (id) => {
 
         const tempCart = [...cart];
-        const selectedProduct: IProduct = tempCart.find(item => item.id === id) || createDefaultProduct();
+        const selectedProduct: IProduct = tempCart.find(item => item._id === id) || createDefaultProduct();
         const prevCount = selectedProduct.count || 0;
         const prevTotal = selectedProduct.total || 0;
         const price = selectedProduct.price || 0;
@@ -119,7 +120,7 @@ function ProductProvider({ children }: { children: React.ReactNode }): React.Rea
 
     const decrement: (id: number) => void = (id) => {
         const tempCart = [...cart];
-        const selectedProduct = tempCart.find(item => item.id === id) || createDefaultProduct();
+        const selectedProduct = tempCart.find(item => item._id === id) || createDefaultProduct();
         const prevCount = selectedProduct.count || 0;
         const prevTotal = selectedProduct.total || 0;
         const price = selectedProduct.price || 0;
@@ -134,7 +135,7 @@ function ProductProvider({ children }: { children: React.ReactNode }): React.Rea
     const removeItem: (id: number) => void = (id) => {
         const tempProducts = [...products];
         let tempCart = [...cart];
-        tempCart = tempCart.filter(item => item.id !== id);
+        tempCart = tempCart.filter(item => item._id !== id);
         const removedProduct = tempProducts[tempProducts.indexOf(getItem(id) || createDefaultProduct())];
         removedProduct.count = 0;
         removedProduct.inCart = false;

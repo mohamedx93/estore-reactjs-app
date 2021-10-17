@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
+import dotenv from 'dotenv';
 
-
+dotenv.config({path: `${process.env.PWD}/utils/.env`});
 
 const connection = { isConnected: 0/*disconnected*/ };
 

@@ -2,22 +2,39 @@ import React, { useContext } from 'react'
 import styles from '../styles/Home.module.scss'
 import Title from '../components/Title'
 import Product from '../components/Product';
-import { ProductContext, IProductContext, IProduct } from '../context';
+import { ProductContext } from 'context';
+import { IProductContext, IProduct } from 'constants/Interfaces';
+import { GetStaticPropsContext } from 'next';
+import * as api from 'api';
+
+export async function getStaticProps(context:GetStaticPropsContext) {
+    const res = await api.fetchProducts();
+    const { data } = res;
+    if (!data) {
+        return {
+            notFound: true,
+        }
+    }
+
+    return {
+        props: { data }, // will be passed to the page component as props
+    }
+}
 
 
-export default function Home():React.ReactElement {
-  const  context:IProductContext = useContext(ProductContext);
-  
-  return (
-      <>
-      <div className={`py-5 ${styles.home}`} >
-          <div className="container">
-            <Title name="our" title="products" />
-            <div className="row">
-            {context.products.map((product:IProduct) => { return <Product key={product.id} product={product} /> })}
+export default function Home({data}): React.ReactElement {
+    const context: ProductContextInterface = useContext(ProductContext);
+
+    return (
+        <>
+            <div className={`py-5 ${styles.home}`} >
+                <div className="container">
+                    <Title name="our" title="products" />
+                    <div className="row">
+                        {context.products.map((product: ProductInterface) => { return <Product key={product.id} product={product} /> })}
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </>
-  )
+        </>
+    )
 }
