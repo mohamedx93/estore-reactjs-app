@@ -3,6 +3,7 @@ import "@utils/dbConnect";
 import { ISignIn } from "@constants/Interfaces";
 import User from "@models/User";
 import jwt from 'jsonwebtoken'
+import bcrtypt from 'bcryptjs'
 
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -11,10 +12,19 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         const existingUser = await User.findOne({ email })
         if (!existingUser) res.status(404).json({ message: 'User doesn\'t exist' })
         const isPasswordCorrect = await bcrypt.compare(password, existingUser.password)
-        if (!isPasswordCorrect) return res.status(400).json({ message: 'Invalide Credentials' })
+        if (!isPasswordCorrect) return res.status(400).json({
+            success: false,
+            message: 'Invalide Credentials'
+        })
         const token = jwt.sign({ email: existingUser.email, id: existingUser._id }, process.env.TOKEN_SECRET, { expiresIn: '1d' })
-        res.status(200).json({ result: existingUser, token })
+        res.status(200).json({
+            success: true,
+            result: existingUser, token
+        })
     } catch (error) {
-        res.status(500).json({ error })
+        res.status(500).json({
+            success: false,
+            error: error
+        })
     }
 }
