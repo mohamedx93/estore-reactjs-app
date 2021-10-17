@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
+import { setOriginalNode } from "typescript";
 
 
 export interface IProduct {
@@ -44,4 +45,18 @@ export interface IProductModel {
     info?: string,
     inCart?: boolean,
     count?: number,
+}
+
+export interface ISignIn {
+    email: string,
+    password: string,
+}
+
+export interface ISignUp {
+    userName: string,
+    password: string,
+    avatar?: string,
+    email: string,
+
+
 }

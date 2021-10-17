@@ -26,12 +26,8 @@ export async function getServerSideProps(context:GetServerSideProps) {
 export default function Home({data}: {data: IProduct[]}): React.ReactElement {
     const { products, setProducts } = useContext(ProductContext);
     useEffect(() => {
-        console.log('OBJECT')
         setProducts(data);
     }, []);
-    useEffect(() => {
-        console.log('OBJECT')
-    },[data]);
     
 
     return (
