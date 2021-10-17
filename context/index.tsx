@@ -61,18 +61,18 @@ function ProductProvider({ children }: { children: React.ReactNode }): React.Rea
 
 
 
-    const cloneProducts: () => IProduct[] = () => {
-        let tempProducts: IProduct[] = [];
-        storeProducts.forEach((item: IProduct) => {
-            tempProducts = [...tempProducts, { ...item }]
-        });
-        return tempProducts;
-    }
+    // const cloneProducts: () => IProduct[] = () => {
+    //     let tempProducts: IProduct[] = [];
+    //     storeProducts.forEach((item: IProduct) => {
+    //         tempProducts = [...tempProducts, { ...item }]
+    //     });
+    //     return tempProducts;
+    // }
 
-    useEffect(() => {
-        let tempProducts = cloneProducts();
-        setProducts(tempProducts);
-    }, [])
+    // useEffect(() => {
+    //     let tempProducts = cloneProducts();
+    //     setProducts(tempProducts);
+    // }, [])
     useEffect(() => {
         addTotals();
     }, [cart])
@@ -148,7 +148,7 @@ function ProductProvider({ children }: { children: React.ReactNode }): React.Rea
 
     const clearCart: () => void = () => {
         setCart([]);
-        setProducts(cloneProducts());
+        // setProducts(cloneProducts());
     }
 
     const addTotals: () => void = () => {

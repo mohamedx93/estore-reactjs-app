@@ -4,12 +4,13 @@ import Title from '../components/Title'
 import Product from '../components/Product';
 import { ProductContext } from 'context';
 import { IProductContext, IProduct } from 'constants/Interfaces';
-import { GetStaticPropsContext } from 'next';
+import { GetServerSideProps, GetStaticPropsContext } from 'next';
 import * as api from 'api';
 
-export async function getStaticProps(context:GetStaticPropsContext) {
+export async function getServerSideProps(context:GetServerSideProps) {
     const res = await api.fetchProducts();
-    const { data } = res;
+    const { data } = res.data;
+ 
     if (!data) {
         return {
             notFound: true,
@@ -17,16 +18,22 @@ export async function getStaticProps(context:GetStaticPropsContext) {
     }
 
     return {
-        props: { JSON.parse(data) }, // will be passed to the page component as props
+        props:{data} // will be passed to the page component as props
     }
 }
 
 
 export default function Home({data}: {data: IProduct[]}): React.ReactElement {
-    const {products, setProducts} = useContext(ProductContext);
+    const { products, setProducts } = useContext(ProductContext);
     useEffect(() => {
+        console.log('OBJECT')
         setProducts(data);
-    },[])
+    }, []);
+    useEffect(() => {
+        console.log('OBJECT')
+    },[data]);
+    
+
     return (
         <>
             <div className={`py-5 ${styles.home}`} >
