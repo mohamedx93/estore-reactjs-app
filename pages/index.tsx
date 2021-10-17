@@ -10,7 +10,7 @@ import * as api from 'api';
 export async function getServerSideProps(context:GetServerSideProps) {
     const res = await api.fetchProducts();
     const { data } = res.data;
- 
+
     if (!data) {
         return {
             notFound: true,
