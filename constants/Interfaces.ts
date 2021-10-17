@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from "react";
 
 
 export interface IProduct {
@@ -16,6 +17,7 @@ export interface IProduct {
 
 export interface IProductContext {
     products: IProduct[];
+    setProducts: Dispatch<SetStateAction<IProduct>>;
     detailedProduct: IProduct | undefined;
     handleDetail: (id: number) => void;
     cart: IProduct[];

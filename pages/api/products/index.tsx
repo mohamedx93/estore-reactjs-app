@@ -1,6 +1,7 @@
 import Product from "@models/Product";
 import { NextApiRequest, NextApiResponse } from "next";
 import "@utils/dbConnect";
+import { IProduct } from "@constants/Interfaces";
 
 export default async(req:NextApiRequest, res:NextApiResponse) => {
     const { method } = req;
@@ -8,7 +9,7 @@ export default async(req:NextApiRequest, res:NextApiResponse) => {
     switch (method) {
         case "GET":
             try {
-                const products = await Product.find({}).limit(20);
+                const products:IProduct[] = await Product.find({}).limit(20);
                 return res.status(200).json({
                     success: true,
                     data: products,

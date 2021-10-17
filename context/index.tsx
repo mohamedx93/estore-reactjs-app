@@ -23,6 +23,7 @@ const createDefaultProduct: () => IProduct = () => {
 const createDefaultContext: () => IProductContext = () => {
     return {
         products: [],
+        setProducts: () => { } ,
         detailedProduct: createDefaultProduct(),
         handleDetail: () => { },
         cart: [],
@@ -165,7 +166,7 @@ function ProductProvider({ children }: { children: React.ReactNode }): React.Rea
 
     return (
         <ProductContext.Provider value={{
-            products, detailedProduct, handleDetail, cart, addToCart, modalOpen, modalProduct, openModal, closeModal, cartSubTotal, cartTax, cartTotal, increment, decrement, removeItem, clearCart
+            products, setProducts, detailedProduct, handleDetail, cart, addToCart, modalOpen, modalProduct, openModal, closeModal, cartSubTotal, cartTax, cartTotal, increment, decrement, removeItem, clearCart
         }}>
             {children}
         </ProductContext.Provider>

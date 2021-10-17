@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import styles from '../styles/Home.module.scss'
 import Title from '../components/Title'
 import Product from '../components/Product';
@@ -17,21 +17,23 @@ export async function getStaticProps(context:GetStaticPropsContext) {
     }
 
     return {
-        props: { data }, // will be passed to the page component as props
+        props: { JSON.parse(data) }, // will be passed to the page component as props
     }
 }
 
 
-export default function Home({data}): React.ReactElement {
-    const context: ProductContextInterface = useContext(ProductContext);
-
+export default function Home({data}: {data: IProduct[]}): React.ReactElement {
+    const {products, setProducts} = useContext(ProductContext);
+    useEffect(() => {
+        setProducts(data);
+    },[])
     return (
         <>
             <div className={`py-5 ${styles.home}`} >
                 <div className="container">
                     <Title name="our" title="products" />
                     <div className="row">
-                        {context.products.map((product: ProductInterface) => { return <Product key={product.id} product={product} /> })}
+                        {products.map((product: IProduct) => { return <Product key={product._id} product={product} /> })}
                     </div>
                 </div>
             </div>
