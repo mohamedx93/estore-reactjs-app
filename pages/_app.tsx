@@ -1,8 +1,7 @@
 import React from 'react';
-import Layout from '../components/Layout'
+import Layout from '@components/commons/Layout'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../styles/globals.css';
-
 import { ProductProvider } from '../context'
 import  Head from 'next/head';
 import { AppProps } from 'next/app';

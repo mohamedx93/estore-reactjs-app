@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import styles from '../styles/Home.module.scss'
-import Title from '../components/Title'
+import Title from '../components/ui/Title'
 import Product from '../components/Product';
 import { ProductContext } from 'context';
 import { IProductContext, IProduct } from 'constants/Interfaces';

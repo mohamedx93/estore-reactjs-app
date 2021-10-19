@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link';
 import styled from 'styled-components';
 import styles from '../../styles/Cart.module.scss'
-import { IProductContext } from '../../context';
+import { IProductContext } from '@constants/Interfaces'
 
 
 export default function CartTotals({ value }:{value:IProductContext}) {

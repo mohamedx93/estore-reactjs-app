@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
 import styled from "styled-components";
-import { ProductContext, IProduct } from '../context';
-import { ButtonContainer } from './Button';
+import { ProductContext } from 'context';
+import { ButtonContainer } from '@components/ui/Button';
 import Link from "next/link";
 import styles from "../styles/Layout.module.scss"
 
 
-interface IProductModal { img?: string | undefined; title?: string | undefined; price?: number | undefined }
+// interface IProductModal { img?: string | undefined; title?: string | undefined; price?: number | undefined }
 
 
 export default function Modal() {

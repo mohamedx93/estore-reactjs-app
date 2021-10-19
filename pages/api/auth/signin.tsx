@@ -3,8 +3,9 @@ import "@utils/dbConnect";
 import { ISignIn } from "@constants/Interfaces";
 import User from "@models/User";
 import jwt from 'jsonwebtoken'
-import bcrtypt from 'bcryptjs'
-
+import bcrypt from 'bcryptjs'
+import dotenv from 'dotenv'
+dotenv.config();
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     const { email, password }: ISignIn = req.body;
