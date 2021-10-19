@@ -1,21 +1,21 @@
+import React, { ReactElement } from 'react'
 import '@components/cart'
 import Title from '@components/ui/Title';
-import React, { ReactElement } from 'react'
-import { IProduct } from '../../constants/Interfaces';
+import { IProductContext, IProduct } from '@constants/Interfaces';
 
-interface Props {
-    
-}
 
-export default function Cart({cart}: {cart:IProduct[]}): ReactElement {
+
+
+export default function Cart({ context }: { context: IProductContext }): ReactElement {
+    const { cart }: {cart:IProduct[]}  = context;
     return (
         <section>
             {cart.length > 0 ?
                 <React.Fragment>
                     <Title name='your' title='cart' />
                     <CartColumns />
-                    <CartList value={context} />
-                    <CartTotals value={context} />
+                    <CartList context={context} />
+                    <CartTotals context={context} />
                 </React.Fragment>
                 : <EmptyCart></EmptyCart>
             }

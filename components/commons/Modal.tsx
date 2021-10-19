@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { ProductContext } from 'context';
 import { ButtonContainer } from '@components/ui/Button';
 import Link from "next/link";
-import styles from "../styles/Layout.module.scss"
+import styles from "@styles/Layout.module.scss"
 
 
 // interface IProductModal { img?: string | undefined; title?: string | undefined; price?: number | undefined }

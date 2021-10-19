@@ -46,6 +46,9 @@
       "@constants/*": [
         "constants/*"
       ],
+      "@views/*": [
+        "views/*"
+      ],
       "@api": [
         "api"
       ]

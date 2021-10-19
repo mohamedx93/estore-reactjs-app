@@ -2,9 +2,9 @@ import React from 'react'
 import Link from 'next/link'
 import logo from '/public/logo.svg'
 import styled from 'styled-components'
-import { ButtonContainer } from './Button'
+import { ButtonContainer } from '@components/ui/Button'
 import Image from 'next/image'
-import styles from '../styles/Layout.module.scss';
+import styles from '@styles/Layout.module.scss';
 
 
 export default function NavBar() {
