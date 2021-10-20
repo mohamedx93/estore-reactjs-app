@@ -1,7 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { ProductContext, IProductContext, IProduct } from '@constants/Interfaces'
+import { IProductContext, IProduct } from '@constants/Interfaces'
+import {ProductContext} from 'context'
 import Link from 'next/link';
-import { ButtonContainer } from '../components/Button'
+import { ButtonContainer } from '@components/ui/Button'
 
 
 export default function Details(): React.ReactElement {
@@ -38,8 +39,8 @@ export default function Details(): React.ReactElement {
                         </Link>
                         <ButtonContainer disabled={detailProduct.inCart}
                             onClick={() => {
-                                context.addToCart(detailProduct.id||-1);
-                                context.openModal(detailProduct.id||-1);
+                                context.addToCart(detailProduct._id||-1);
+                                context.openModal(detailProduct._id||-1);
                             }}>
                             {detailProduct.inCart ? "inCart" : "add to Cart"}
                         </ButtonContainer>

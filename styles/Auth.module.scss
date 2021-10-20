@@ -1,0 +1,13 @@
+@use 'colors' as *;
+@use 'mixins' as *;
+@use 'typography' as *;
+
+.formContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    // width: 450px;
+    // height: 500px;
+    @include outer-shaddow;
+}

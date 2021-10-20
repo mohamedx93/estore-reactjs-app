@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useReducer } from 'react'
 import { storeProducts, detailProduct } from './data'
 import { IProduct, IProductContext } from '../constants/Interfaces'
-import Reducer from './Reducer.tsx';
+// import Reducer from './Reducer.tsx';
 
 
 const createDefaultProduct: () => IProduct = () => {
