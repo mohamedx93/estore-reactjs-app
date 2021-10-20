@@ -1,26 +1,28 @@
-import React, { useContext } from "react";
+import React, { ReactElement, useContext } from "react";
 import styled from "styled-components";
 import styles from '../styles/Product.module.scss'
 import Link from "next/link";
-import { ProductContext } from "../context";
-import { IProduct } from '../context';
+import { ProductContext } from "context";
+import { IProduct } from '@constants/Interfaces';
 
+interface Props{
+    product: IProduct,
+}
 
-
-export default function Product({ product  }: { product : IProduct }) {
+export default function Product({ product  }: Props):ReactElement {
     const context = useContext(ProductContext)
-    const { id, title, img, price, inCart } = product;
+    const { _id, title, img, price, inCart } = product;
     return (
         <ProductWrapper className='col-9 col-md-6 col-lg-3 mx-auto my-3'>
             <div className={`${styles.card}`}>
-                <div className="img-container p-5" onClick={() => context.handleDetail(id||-1)}>
+                <div className="img-container p-5" onClick={() => context.handleDetail(_id||-1)}>
                     <Link href="/details" >
                         <img src={img} alt='product' className="card-img-top" />
                     </Link>
                     <button className="cart-btn" disabled={inCart ? true : false}
                         onClick={() => {
-                            context.addToCart(id||-1);
-                            context.openModal(id||-1);
+                            context.addToCart(_id||-1);
+                            context.openModal(_id||-1);
                         }}>
                         {inCart ? (
                             <p className="text-capitalize mb-0 ">in cart</p>) :

@@ -1,9 +1,14 @@
-import React, { useEffect} from 'react';
+import React, { ReactNode } from 'react';
 import NavBar from './NavBar';
 import Modal from './Modal';
 import Script from 'next/script';
 
-export default function Layout({ children }:{children:React.ReactNode,pageProps:any}) {
+interface Props{
+    children: ReactNode,
+    // pageProps: any,
+}
+
+export default function Layout({ children }: Props) {
     // useEffect(()=>{console.log(styles)},[])
     return (
         <>

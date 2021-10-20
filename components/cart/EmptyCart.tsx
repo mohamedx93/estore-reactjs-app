@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 
-export default function EmptyCart() {
+export default function EmptyCart():ReactElement {
     return (
         <div className="container mt-5">
             <div className="row">

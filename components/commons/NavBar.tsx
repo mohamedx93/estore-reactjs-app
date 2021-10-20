@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import Link from 'next/link'
 import logo from '/public/logo.svg'
 import styled from 'styled-components'
@@ -7,7 +7,7 @@ import Image from 'next/image'
 import styles from '@styles/Layout.module.scss';
 
 
-export default function NavBar() {
+export default function NavBar():ReactElement {
     return (
         <NavWrapper className={`navbar navbar-expand-sm navbar-dark px-5 ${styles.navBar}`}>
             {/*https://www.iconfinder.com/icons/1243689/call_phone_icon

@@ -1,15 +1,16 @@
-import React, { useContext } from 'react'
+import React, { ReactElement, useContext } from 'react'
 import styled from "styled-components";
 import { ProductContext } from 'context';
 import { ButtonContainer } from '@components/ui/Button';
 import Link from "next/link";
 import styles from "@styles/Layout.module.scss"
+import mitt from 'next/dist/next-server/lib/mitt';
 
 
 // interface IProductModal { img?: string | undefined; title?: string | undefined; price?: number | undefined }
 
 
-export default function Modal() {
+export default function Modal():ReactElement|null {
     const context = useContext(ProductContext);
     const { modalOpen, closeModal,detailedProduct } = context;
     const { img, title, price, } = detailedProduct as any;

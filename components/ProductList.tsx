@@ -1,11 +1,11 @@
-import React, { useContext  } from 'react'
+import React, { ReactElement, useContext  } from 'react'
 import Product from './Product'
 import Title from './ui/Title';
 //import { storeProducts } from '../data'
 import { ProductContext } from '../context'
 
 
-export default function ProductList() {
+export default function ProductList():ReactElement {
     //const [products, setProducts] = useState(storeProducts);
     const context = useContext(ProductContext)
 

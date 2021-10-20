@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styles from '../../styles/Cart.module.scss'
-import { IProduct,IProductContext } from '@constants/Interfaces';
-export default function CartItem({ item, value }:{item: IProduct, value: IProductContext}) {
+import { IProduct, IProductContext } from '@constants/Interfaces';
+
+interface Props{
+    item: IProduct,
+    context: IProductContext,
+}
+
+export default function CartItem({ item, context }:Props):ReactElement {
     const { _id, title, price, total, img, count } = item;
-    const { increment, decrement, removeItem } = value;
+    const { increment, decrement, removeItem } = context;
     return (
         <div className="row my-3 text-capitalize text-center">
             <div className="col-10 col-lg-2 m-auto">
