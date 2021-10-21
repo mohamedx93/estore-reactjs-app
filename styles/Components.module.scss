@@ -1,0 +1,11 @@
+@use 'colors' as *;
+@use 'mixins' as *;
+@use 'typography' as *;
+
+.inputNeumorph{
+    @include inner-shaddow;
+    border: none;
+    border-radius: .5rem;
+    margin: .4rem;
+    padding: .3rem;
+}
