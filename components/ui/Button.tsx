@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import styles from '../styles/Button.module.scss'
-export const ButtonContainer = styled.button`
+import styles from '@styles/Button.module.scss'
+const ButtonContainer = styled.button`
     text-transform: capitalize;
     font-size: 1.4rem;
     border: none;
@@ -16,3 +16,5 @@ export const ButtonContainer = styled.button`
         outline: none;
     }
 `
+
+export default ButtonContainer;

@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import { IProductContext, IProduct } from '@constants/Interfaces'
 import {ProductContext} from 'context'
 import Link from 'next/link';
-import { ButtonContainer } from '@components/ui/Button'
+import ButtonContainer from '@components/ui/Button'
 
 
 export default function Details(): React.ReactElement {

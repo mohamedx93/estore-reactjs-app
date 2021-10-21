@@ -1,13 +1,47 @@
-@use 'colors' as *;
-@use 'mixins' as *;
-@use 'typography' as *;
+@use "colors" as *;
+@use "mixins" as *;
+@use "typography" as *;
 
-.formContainer{
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: auto;
+  padding: 0.75rem;
+  width: 20rem;
+  @include outer-shaddow;
+  .logoBox {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding-bottom: 0.75rem;
+    width:64px; 
+    height:64px;
+
+  }
+  .formBody {
+    display: flex;
     flex-direction: column;
-    // width: 450px;
-    // height: 500px;
-    @include outer-shaddow;
+    * + * {
+      margin: 0.75rem 0;
+    }
+    align-items: center;
+  }
+  .authInput {
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 0.6rem;
+    &:focus{
+        border: 3px solid $mainBlue !important;
+    }
+  }
+  .submitButton {
+    @include btn-3d;
+    padding: 0.3rem 1.2rem;
+    border-radius: .6rem;
+    
+    transition: all 150ms ease-in-out;
+
+  }
 }

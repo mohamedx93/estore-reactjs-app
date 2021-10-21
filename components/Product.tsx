@@ -1,9 +1,10 @@
 import React, { ReactElement, useContext } from "react";
 import styled from "styled-components";
-import styles from '../styles/Product.module.scss'
+import styles from '@styless/Product.module.scss'
 import Link from "next/link";
 import { ProductContext } from "context";
 import { IProduct } from '@constants/Interfaces';
+
 
 interface Props{
     product: IProduct,

@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import styles from '../styles/Title.module.scss';
+import styles from '@styles/Title.module.scss';
 
 interface Props {
     name?: string, title?: string
