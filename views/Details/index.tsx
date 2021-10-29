@@ -1,6 +1,6 @@
 import React, { ReactElement, useContext, useEffect, useState } from 'react'
 import { IProduct, IProductContext } from '@constants/Interfaces';
-import { ProductContext, LayoutContext } from 'context';
+import { ProductContext, AuthContext } from 'context';
 import Link from 'next/link';
 import Button from '@components/ui/Button'
 import styles from '@styles/Components.module.scss'
@@ -11,7 +11,7 @@ export default function Details(): ReactElement {
     const context: IProductContext = useContext(ProductContext);
 
     const [detailProduct, setDetailProduct] = useState<IProduct>({ ...context.detailedProduct });
-    const { setIsAuthView } = useContext(LayoutContext);
+    const { setIsAuthView } = useContext(AuthContext);
 
 
     useEffect(() => {

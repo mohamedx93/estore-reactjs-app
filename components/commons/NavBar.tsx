@@ -18,7 +18,7 @@ export default function NavBar(): ReactElement {
                         <a>
                             <Button className={`d-flex align-items-center ${styles.navStore}`} >
                                 <span className={styles.logo}>
-                                    <Logo />
+                                    <Logo width='30px' height='30px'/>
                                 </span>
                                 Products
 

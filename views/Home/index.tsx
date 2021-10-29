@@ -2,7 +2,7 @@ import React, { ReactElement, useContext, useEffect } from 'react'
 import styles from '@styles/Home.module.scss'
 import Title from '@components/ui/Title'
 import Product from '@components/Product';
-import { ProductContext, LayoutContext } from 'context';
+import { ProductContext, AuthContext } from 'context';
 import { IProduct } from '@constants/Interfaces';
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
 
 export default function Home({fetchedProducts}: Props): ReactElement {
     const { products, setProducts } = useContext(ProductContext);
-    const { setIsAuthView } = useContext(LayoutContext);
+    const { setIsAuthView } = useContext(AuthContext);
     
     useEffect(() => {
         setProducts(fetchedProducts);

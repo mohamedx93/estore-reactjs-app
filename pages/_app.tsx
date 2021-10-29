@@ -2,7 +2,7 @@ import React from 'react';
 import { AppProps } from 'next/app';
 import  Head from 'next/head';
 import Layout from '@components/commons/Layout'
-import { ProductProvider, LayoutProvider } from 'context';
+import { ProductProvider, AuthProvider } from 'context';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../styles/globals.css';
 
@@ -17,13 +17,13 @@ function MyApp({ Component, pageProps }:AppProps) {
         <title>Ecommerce ReactJS App</title>
 
       </Head>
-      <LayoutProvider>
+      <AuthProvider>
       <ProductProvider>
         <Layout >
           <Component {...pageProps} />
         </Layout>
       </ProductProvider>
-      </LayoutProvider>
+      </AuthProvider>
     </>
   )
 }

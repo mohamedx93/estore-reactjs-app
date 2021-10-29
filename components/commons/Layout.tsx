@@ -2,7 +2,7 @@ import React, { ReactNode, useContext } from 'react';
 import NavBar from './NavBar';
 import Modal from './Modal';
 import Script from 'next/script';
-import { LayoutContext } from '@context/Layout';
+import { AuthContext } from '@context/Layout';
 
 interface Props{
     children: ReactNode,
@@ -10,7 +10,7 @@ interface Props{
 }
 
 export default function Layout({ children }: Props) {
-    const { isAuthView } = useContext(LayoutContext);
+    const { isAuthView } = useContext(AuthContext);
     return (
         <>
             <Script

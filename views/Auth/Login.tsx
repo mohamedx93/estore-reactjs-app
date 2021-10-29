@@ -23,10 +23,10 @@ export default function Login({ setIsSignUpView, setLoading }: Props): ReactElem
     const handleLogin =  (e: React.SyntheticEvent<EventTarget>) => {
         e.preventDefault()
 
-        // if (!dirty && !disabled) {
-        //     setDirty(true)
-        //     handleValidation()
-        // }
+        if (!dirty && !disabled) {
+            setDirty(true)
+            handleValidation()
+        }
 
         try {
             setLoading(true)

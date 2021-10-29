@@ -1,2 +1,2 @@
 export { ProductContext, ProductProvider} from './Product';
-export { LayoutContext, LayoutProvider } from './Layout';
+export { AuthContext, AuthProvider } from './Auth';

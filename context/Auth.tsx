@@ -1,13 +1,11 @@
 import React, { useEffect, useState, useReducer } from 'react'
-import { ILayoutContext } from '../constants/Interfaces'
+import { IAuthContext } from '../constants/Interfaces'
 // import Spin from 'react-cssfx-loading/lib/CircularProgress';
-import Progress from '@components/ui/Progress'
-import styles from '@styles/Components.module.scss'
 
 
 
 
-const createDefaultContext: () => ILayoutContext = () => {
+const createDefaultContext: () => IAuthContext = () => {
     return {
         loading: false,
         isAuthView: true,
@@ -16,23 +14,23 @@ const createDefaultContext: () => ILayoutContext = () => {
     }
 }
 
-export const LayoutContext = React.createContext<ILayoutContext>(createDefaultContext());
+export const AuthContext = React.createContext<IAuthContext>(createDefaultContext());
 
 
 
-function LayoutProvider({ children }: { children: React.ReactNode }): React.ReactElement {
+function AuthProvider({ children }: { children: React.ReactNode }): React.ReactElement {
     const [isAuthView, setIsAuthView] = useState(true)
     const [loading, setLoading] = useState(false)
     return (
-        <LayoutContext.Provider value={{
+        <AuthContext.Provider value={{
             isAuthView, setIsAuthView, loading, setLoading
         }}>
             {children}
             
-        </LayoutContext.Provider>
+        </AuthContext.Provider>
     )
 }
 
 
-export { LayoutProvider }
+export { AuthProvider }
 

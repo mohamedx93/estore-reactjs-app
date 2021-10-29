@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 
 
-export interface ILayoutContext{
+export interface IAuthContext{
     isAuthView: boolean;
     setIsAuthView: Dispatch<SetStateAction<boolean>>;
     loading: boolean;

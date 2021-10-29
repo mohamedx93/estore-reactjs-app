@@ -2,14 +2,14 @@ import React, { ReactElement, useContext, useEffect } from 'react'
 import Title from '@components/ui/Title';
 import { CartColumns, CartList, CartTotals, EmptyCart } from '@components/cart';
 import { IProductContext, IProduct } from '@constants/Interfaces';
-import { ProductContext, LayoutContext } from 'context';
+import { ProductContext, AuthContext } from 'context';
 
 
 
 export default function Cart(): ReactElement {
     const context: IProductContext = useContext(ProductContext)
     const { cart }: { cart: IProduct[] } = context;
-    const { setIsAuthView } = useContext(LayoutContext);
+    const { setIsAuthView } = useContext(AuthContext);
     useEffect(() => {
         setIsAuthView(false);
     }, [setIsAuthView])
