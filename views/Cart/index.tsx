@@ -1,15 +1,18 @@
-import React, { ReactElement } from 'react'
-import '@components/cart'
+import React, { ReactElement, useContext, useEffect } from 'react'
 import Title from '@components/ui/Title';
+import { CartColumns, CartList, CartTotals, EmptyCart } from '@components/cart';
 import { IProductContext, IProduct } from '@constants/Interfaces';
-
-interface Props{
-    context:IProductContext,
-}
+import { ProductContext, LayoutContext } from 'context';
 
 
-export default function Cart({ context }: Props): ReactElement {
-    const { cart }: {cart:IProduct[]}  = context;
+
+export default function Cart(): ReactElement {
+    const context: IProductContext = useContext(ProductContext)
+    const { cart }: { cart: IProduct[] } = context;
+    const { setIsAuthView } = useContext(LayoutContext);
+    useEffect(() => {
+        setIsAuthView(false);
+    }, [setIsAuthView])
     return (
         <section>
             {cart.length > 0 ?

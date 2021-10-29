@@ -1,11 +1,27 @@
-@use 'colors' as *;
-@use 'mixins' as *;
-@use 'typography' as *;
+@use "colors" as *;
+@use "mixins" as *;
+@use "typography" as *;
 
-.inputNeumorph{
-    @include inner-shaddow;
-    border: none;
-    border-radius: .5rem;
-    margin: .4rem;
-    padding: .3rem;
+.inputNeumorph {
+  @include inner-shaddow;
+  background: none;
+  border: none;
+  border-radius: 0.5rem;
+  margin: 0.4rem;
+  padding: 0.3rem;
+  color: $dark8;
+  &::placeholder {
+    color: $dark6;
+    font-family: Roboto, FontAwesome;
+    font-size: small;
+  }
+}
+
+.buttonNeumorph {
+  @include btn-3d;
+  transition: all 150ms ease-in-out;
+}
+
+.loading {
+  color: $mainBlue;
 }

@@ -5,8 +5,8 @@ import styles from '../../styles/Cart.module.scss'
 import { IProductContext } from '@constants/Interfaces'
 
 
-export default function CartTotals({ value }:{value:IProductContext}):ReactElement {
-    const { cartSubTotal, cartTax, cartTotal, clearCart } = value;
+export default function CartTotals({ context }:{context:IProductContext}):ReactElement {
+    const { cartSubTotal, cartTax, cartTotal, clearCart } = context;
     return (
         <React.Fragment>
             <div className="container">

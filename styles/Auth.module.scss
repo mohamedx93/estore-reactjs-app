@@ -6,19 +6,20 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: auto;
+  margin: 10vh auto;
   padding: 0.75rem;
   width: 20rem;
+  border-radius: 1.3rem;
+  font-family: Oswald !important;
   @include outer-shaddow;
   .logoBox {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    padding-bottom: 0.75rem;
-    width:64px; 
-    height:64px;
+    svg{
+      @include logo-style(64px, 64px);
+    }
 
+    margin: auto;
+    padding-bottom: 3rem;
+    
   }
   .formBody {
     display: flex;
@@ -28,20 +29,40 @@
     }
     align-items: center;
   }
-  .authInput {
+  input {
     width: 100%;
-    padding: 0.6rem;
-    border-radius: 0.6rem;
-    &:focus{
-        border: 3px solid $mainBlue !important;
-    }
+    padding: 0.6rem 1rem;
+    border-radius: .9rem;
+    
   }
   .submitButton {
     @include btn-3d;
-    padding: 0.3rem 1.2rem;
+    padding: 0.3rem;
+    width: 70%;
     border-radius: .6rem;
     
     transition: all 150ms ease-in-out;
 
+  }
+  .link{
+    // pt-1 text-center text-sm
+    padding-top: 1rem;
+    margin: auto;
+    font-size: small;
+    letter-spacing: .1em;
+    font-weight: 300;
+    color: $dark3;
+    a{
+      // text-accent-9 font-bold hover:underline cursor-pointer
+      font-weight: 600;
+      
+      color: $mainBlue;
+      &:hover{
+        color: $mainBlue;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+    }
   }
 }

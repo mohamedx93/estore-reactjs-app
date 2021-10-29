@@ -1,7 +1,12 @@
 import { Dispatch, SetStateAction } from "react";
 
 
-
+export interface ILayoutContext{
+    isAuthView: boolean;
+    setIsAuthView: Dispatch<SetStateAction<boolean>>;
+    loading: boolean;
+    setLoading: Dispatch<SetStateAction<boolean>>;
+}
 
 export interface IProduct {
     _id?: number;
@@ -14,8 +19,6 @@ export interface IProduct {
     count?: number;
     total?: number
 }
-
-
 
 export interface IProductContext {
     products: IProduct[];
@@ -58,7 +61,7 @@ export interface ISignUp {
     password: string,
     avatar?: string,
     email: string,
-
 }
+
 
 export interface IUserModel extends ISignUp { };

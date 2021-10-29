@@ -1,15 +1,16 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useContext } from 'react';
 import NavBar from './NavBar';
 import Modal from './Modal';
 import Script from 'next/script';
+import { LayoutContext } from '@context/Layout';
 
 interface Props{
     children: ReactNode,
-    // pageProps: any,
+    
 }
 
 export default function Layout({ children }: Props) {
-    // useEffect(()=>{console.log(styles)},[])
+    const { isAuthView } = useContext(LayoutContext);
     return (
         <>
             <Script
@@ -17,7 +18,7 @@ export default function Layout({ children }: Props) {
                 crossOrigin="anonymous"
                 strategy='beforeInteractive'
             />
-            <NavBar/>
+            {!isAuthView && <NavBar />}
             {children}
             <Modal />
         </>

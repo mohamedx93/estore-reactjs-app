@@ -1,13 +1,14 @@
-import React, { useContext, useEffect } from 'react'
-import styles from '../styles/Home.module.scss'
-import Title from '../components/ui/Title'
-import Product from '../components/Product';
-import { ProductContext } from 'context';
-import { IProductContext, IProduct } from 'constants/Interfaces';
-import { GetServerSideProps, GetStaticPropsContext } from 'next';
+import React from 'react'
+import { IProduct } from 'constants/Interfaces';
+import HomeView from '@views/Home'
+import { GetServerSideProps } from 'next';
 import * as api from 'api';
+import Auth from '@views/Auth';
+import { useContext } from 'react';
+import { LayoutContext } from 'context';
+import { Progress } from '@components/ui/Progress';
 
-export async function getServerSideProps(context:GetServerSideProps) {
+export async function getServerSideProps(context: GetServerSideProps) {
     const res = await api.fetchProducts();
     const { data } = res.data;
 
@@ -18,28 +19,18 @@ export async function getServerSideProps(context:GetServerSideProps) {
     }
 
     return {
-        props:{data} // will be passed to the page component as props
+        props: { data } // will be passed to the page component as props
     }
 }
 
 
-export default function Home({data}: {data: IProduct[]}): React.ReactElement {
-    const { products, setProducts } = useContext(ProductContext);
-    useEffect(() => {
-        setProducts(data);
-    }, []);
-    
-
+export default function Home({ data }: { data: IProduct[] }): React.ReactElement {
+    const { loading } = useContext(LayoutContext);
     return (
+        // <HomeView fetchedProducts={data} />
         <>
-            <div className={`py-5 ${styles.home}`} >
-                <div className="container">
-                    <Title name="our" title="products" />
-                    <div className="row">
-                        {products.map((product: IProduct) => { return <Product key={product._id} product={product} /> })}
-                    </div>
-                </div>
-            </div>
+            {loading ? <Progress /> : <Auth />}
         </>
+
     )
 }

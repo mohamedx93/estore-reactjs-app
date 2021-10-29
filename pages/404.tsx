@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function NotFound() {
+export default function NotFound({location}:{location:any}) {
     return (
         <div className="container">
             <div className="row">

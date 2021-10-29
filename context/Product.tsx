@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useReducer } from 'react'
 import { storeProducts, detailProduct } from './data'
 import { IProduct, IProductContext } from '../constants/Interfaces'
-// import Reducer from './Reducer.tsx';
+
+
 
 
 const createDefaultProduct: () => IProduct = () => {
@@ -23,7 +24,7 @@ const createDefaultProduct: () => IProduct = () => {
 const createDefaultContext: () => IProductContext = () => {
     return {
         products: [],
-        setProducts: () => { } ,
+        setProducts: () => { },
         detailedProduct: createDefaultProduct(),
         handleDetail: () => { },
         cart: [],
@@ -58,6 +59,7 @@ function ProductProvider({ children }: { children: React.ReactNode }): React.Rea
     const [cartSubTotal, setCartSubTotal] = useState<number>(0);
     const [cartTax, setCartTax] = useState<number>(0);
     const [cartTotal, setCartTotal] = useState<number>(0);
+
 
 
 

@@ -1,6 +1,6 @@
 import React, { ReactElement, useContext } from "react";
 import styled from "styled-components";
-import styles from '@styless/Product.module.scss'
+import styles from '@styles/Product.module.scss'
 import Link from "next/link";
 import { ProductContext } from "context";
 import { IProduct } from '@constants/Interfaces';
@@ -18,7 +18,7 @@ export default function Product({ product  }: Props):ReactElement {
             <div className={`${styles.card}`}>
                 <div className="img-container p-5" onClick={() => context.handleDetail(_id||-1)}>
                     <Link href="/details" >
-                        <img src={img} alt='product' className="card-img-top" />
+                        <img src={`/${img}`} alt='product' className="card-img-top" />
                     </Link>
                     <button className="cart-btn" disabled={inCart ? true : false}
                         onClick={() => {

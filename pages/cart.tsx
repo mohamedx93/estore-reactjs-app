@@ -1,13 +1,10 @@
-import React, { useContext } from 'react'
-import { IProductContext, IProduct } from '@constants/Interfaces'
-import {ProductContext} from 'context'
+import React from 'react'
+
 import CartView from '@views/Cart';
 
 
 export default function Cart(): React.ReactElement {
-    const context:IProductContext = useContext(ProductContext)
-    const { cart }: {cart:IProduct[]} = context;
     return (
-        <CartView context={context}/>
+        <CartView/>
     )
 }

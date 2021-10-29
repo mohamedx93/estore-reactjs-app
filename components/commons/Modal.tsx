@@ -4,7 +4,6 @@ import { ProductContext } from 'context';
 import ButtonContainer from '@components/ui/Button';
 import Link from "next/link";
 import styles from "@styles/Layout.module.scss"
-import mitt from 'next/dist/next-server/lib/mitt';
 
 
 // interface IProductModal { img?: string | undefined; title?: string | undefined; price?: number | undefined }
@@ -54,7 +53,7 @@ top: 0;
 left: 0;
 right: 0;
 bottom: 0;
-background: #323234B0;
+background: #323234;
 display: flex;
 align-items: center;
 justify-content: center; 
