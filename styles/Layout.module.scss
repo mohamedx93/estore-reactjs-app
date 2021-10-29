@@ -15,13 +15,21 @@
     background: $dark-gradient4;
     @include outer-shaddow;
     transition: linear;
+    height: 42px;
+    width: 128px;
   }
   .navStore {
     color: $mainYellow;
-
     .logo {
-      fill: $mainYellow;
-      scale: 1.5;
+      margin: auto;
+      svg {
+        @include logo-style(36px, $fill: $mainYellow);
+        margin-right: .3rem;
+        path{
+          scale: 1;
+          transform: translate(3px,0);
+        }
+      }
     }
 
     &:hover {

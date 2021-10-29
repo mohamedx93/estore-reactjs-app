@@ -1,9 +1,9 @@
 @use "colors" as *;
 
-$in-shaddow: inset 4px 4px 8px $dark1, inset -2px -2px 8px $dark8;
+$in-shaddow: inset 4px 4px 6px 2px $dark2, inset -2px -2px 6px 2px $dark7;
 $out-shaddow: 4px 4px 8px 2px $dark1, -2px -2px 6px $dark6;
 
-@mixin btn-3d($color: white, $hover-color: $mainBlue, $bg: $dark5 ) {
+@mixin btn-3d($color: white, $hover-color: $mainBlue, $bg: $dark5) {
   background: $bg;
   color: $color;
   @include outer-shaddow;
@@ -25,7 +25,7 @@ $out-shaddow: 4px 4px 8px 2px $dark1, -2px -2px 6px $dark6;
 }
 
 @mixin inner-outer-shaddow {
-  box-shadow:  $out-shaddow, $in-shaddow;
+  box-shadow: $out-shaddow, $in-shaddow;
 }
 
 @mixin outer-shaddow {
@@ -41,7 +41,7 @@ $out-shaddow: 4px 4px 8px 2px $dark1, -2px -2px 6px $dark6;
 
 @mixin text-neon($neon: $mainBlue, $text: white) {
   color: $text;
-  
+
   text-shadow:
     // 0 0 4px $text,
     // 0 0 7px $text,
@@ -53,10 +53,20 @@ $out-shaddow: 4px 4px 8px 2px $dark1, -2px -2px 6px $dark6;
     0 0 15px $neon;
 }
 
-
 @mixin light-elevation {
   box-shadow: 0px 4px 5px 3px $dark1;
 }
 @mixin medium-elevation {
   box-shadow: 0px 11px 15px 7px $dark1;
+}
+
+@mixin logo-style($width: 30px, $height: 30px, $fill: $mainBlue) {
+  
+    width: $width;
+    height: $height;
+    path {
+      fill: $fill;
+      scale: calc($width/30px);
+    }
+  
 }

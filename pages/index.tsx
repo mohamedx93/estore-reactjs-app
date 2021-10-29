@@ -1,23 +1,36 @@
-import React, { useContext } from 'react'
-import styles from '../styles/Home.module.scss'
-import Title from '../components/Title'
-import Product from '../components/Product';
-import { ProductContext, ProductContextInterface, ProductInterface } from '../context';
+import React from 'react'
+import { IProduct } from 'constants/Interfaces';
+import HomeView from '@views/Home'
+import { GetServerSideProps } from 'next';
+import * as api from 'api';
+import Auth from '@views/Auth';
+import { useContext } from 'react';
+import { LayoutContext } from 'context';
+import { Progress } from '@components/ui/Progress';
+
+export async function getServerSideProps(context: GetServerSideProps) {
+    const res = await api.fetchProducts();
+    const { data } = res.data;
+
+    if (!data) {
+        return {
+            notFound: true,
+        }
+    }
+
+    return {
+        props: { data } // will be passed to the page component as props
+    }
+}
 
 
-export default function Home():React.ReactElement {
-  const  context:ProductContextInterface = useContext(ProductContext);
-  
-  return (
-      <>
-      <div className={`py-5 ${styles.home}`} >
-          <div className="container">
-            <Title name="our" title="products" />
-            <div className="row">
-            {context.products.map((product:ProductInterface) => { return <Product key={product.id} product={product} /> })}
-            </div>
-          </div>
-        </div>
-      </>
-  )
+export default function Home({ data }: { data: IProduct[] }): React.ReactElement {
+    const { loading } = useContext(LayoutContext);
+    return (
+        // <HomeView fetchedProducts={data} />
+        <>
+            {loading ? <Progress /> : <Auth />}
+        </>
+
+    )
 }
