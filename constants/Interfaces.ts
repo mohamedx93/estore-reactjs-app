@@ -1,11 +1,16 @@
 import { Dispatch, SetStateAction } from "react";
 
 
-export interface IAuthContext{
-    isAuthView: boolean;
-    setIsAuthView: Dispatch<SetStateAction<boolean>>;
+export interface ILayoutContext{
+    isNavBarHidden: boolean;
+    setIsNavBarHidden: Dispatch<SetStateAction<boolean>>;
     loading: boolean;
     setLoading: Dispatch<SetStateAction<boolean>>;
+}
+
+export interface IAuthContext{
+    isUserLogedIn: boolean;
+    setIsUserLogedIn: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface IProduct {

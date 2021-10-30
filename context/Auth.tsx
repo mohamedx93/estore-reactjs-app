@@ -7,10 +7,8 @@ import { IAuthContext } from '../constants/Interfaces'
 
 const createDefaultContext: () => IAuthContext = () => {
     return {
-        loading: false,
-        isAuthView: true,
-        setIsAuthView: () => { },
-        setLoading: () => { },
+        isUserLogedIn: false,
+        setIsUserLogedIn: () => { },
     }
 }
 
@@ -19,11 +17,10 @@ export const AuthContext = React.createContext<IAuthContext>(createDefaultContex
 
 
 function AuthProvider({ children }: { children: React.ReactNode }): React.ReactElement {
-    const [isAuthView, setIsAuthView] = useState(true)
-    const [loading, setLoading] = useState(false)
+    const [isUserLogedIn, setIsUserLogedIn] = useState(false)
     return (
         <AuthContext.Provider value={{
-            isAuthView, setIsAuthView, loading, setLoading
+            isUserLogedIn, setIsUserLogedIn
         }}>
             {children}
             
