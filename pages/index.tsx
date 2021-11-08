@@ -4,13 +4,13 @@ import HomeView from '@views/Home'
 import { GetServerSideProps } from 'next';
 import * as api from 'api';
 import Auth from '@views/Auth';
-import { useContext } from 'react';
-import { AuthContext } from 'context';
+import { useContext, useEffect } from 'react';
+import { LayoutContext } from 'context';
 import Progress from '@components/ui/Progress';
 
 export async function getServerSideProps(context: GetServerSideProps) {
     const res = await api.fetchProducts();
-    const { data } = res.data;
+    const { data }:any = res.data;
 
     if (!data) {
         return {
@@ -25,11 +25,14 @@ export async function getServerSideProps(context: GetServerSideProps) {
 
 
 export default function Home({ data }: { data: IProduct[] }): React.ReactElement {
-    const { loading } = useContext(AuthContext);
+    const { loading, setLoading } = useContext(LayoutContext);
+    useEffect(() => {
+        setLoading(true);
+    }, []);
+    //{loading ? <Progress /> : <Auth />}
     return (
-        // <HomeView fetchedProducts={data} />
         <>
-            {loading ? <Progress /> : <Auth />}
+            {loading ? <Progress /> : <HomeView fetchedProducts={data} />}
         </>
 
     )

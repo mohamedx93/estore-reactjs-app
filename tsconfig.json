@@ -59,7 +59,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "pages/api/login.tsz"  ],
   "exclude": [
     "node_modules"
   ]
